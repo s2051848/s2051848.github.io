@@ -1,0 +1,164 @@
+$success: #22cf7e;
+
+@import "~bootstrap/scss/bootstrap";
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body,
+#root {
+  display: flex;
+  flex-direction: column;
+}
+
+.svg_bomb {
+  animation-name: svg_bomb;
+  animation-duration: 1000ms;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
+}
+
+@keyframes svg_bomb {
+  0% {
+    fill: black;
+  }
+  50% {
+    fill: white;
+  }
+  100% {
+    fill: black;
+  }
+}
+
+.boom {
+  position: relative;
+  z-index: 10;
+  animation: boom 0.25s ease;
+}
+
+.bombEntrance {
+  animation: bombEntrance 0.15s ease;
+  animation-fill-mode: both;
+}
+
+.letterblend-fade {
+  animation: letterblendFade 0.95s;
+  animation-fill-mode: both;
+}
+
+@keyframes letterblendFade {
+  0% {
+    opacity: 0;
+    transform: translateY(-0em);
+  }
+  7% {
+    opacity: 1;
+    transform: translateY(-1em);
+  }
+  93% {
+    opacity: 1;
+    transform: translateY(-1em);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-1.5em);
+  }
+}
+
+@keyframes bombEntrance {
+  0% {
+    opacity: 0;
+    transform: scale(0, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1, 1);
+  }
+}
+
+@keyframes boom {
+  0% {
+    transform: scale(1, 1);
+    opacity: 1;
+  }
+  20% {
+    transform: scale(1.7, 1.7);
+    opacity: 0;
+  }
+  30% {
+    transform: scale(0, 0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1, 1);
+    opacity: 1;
+  }
+}
+
+.dark {
+  background: var(--bs-gray-800);
+  color: white;
+  .sidebar {
+    background: var(--bs-gray-900);
+  }
+  .hr {
+    border-color: #111;
+  }
+  .list-group-item,
+  .btn-dark,
+  .form-control {
+    background: #111;
+    border-color: black;
+    color: white;
+    opacity: 1;
+    &:disabled {
+      opacity: 0.4;
+    }
+  }
+  .list-group-item-primary {
+    color: #084298;
+    background-color: #cfe2ff;
+  }
+  .btn-outline-dark {
+    color: var(--bs-gray-500);
+    background-color: var(--bs-gray-700);
+    border-color: black;
+  }
+  .text-secondary {
+    color: var(--bs-gray-400) !important;
+  }
+}
+
+.activeTyper {
+  animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+  50% {
+    box-shadow: inset 0 0 0 2px var(--bs-primary);
+  }
+}
+
+.sidebar {
+  background: var(--bs-gray-200);
+}
+
+.hr {
+  opacity: 1;
+  border-color: var(--bs-gray-500);
+}
+
+.heart-letters-btn {
+  @media (max-width: 500px) {
+    font-size: 0.7em;
+    width: auto !important;
+    font-weight: bold;
+  }
+}
+
+.list-group-item {
+  padding: 0.5rem 0.5rem;
+}
